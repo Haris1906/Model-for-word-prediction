@@ -3,9 +3,10 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
+
 def segment_words(image_path, output_dir="cropped_images"):
     """
-    Segments words from an image, resizes them to 128x32, and saves them to the output directory.
+    Segments words from an image, increases width by 50% and height by 20%, and saves them to the output directory.
 
     Args:
         image_path (str): Path to the input image.
@@ -52,20 +53,36 @@ def segment_words(image_path, output_dir="cropped_images"):
         bounding_boxes[filename] = (x, y, w, h)
 
         # Crop the word region
-        cropped_img = img[y:y+h, x:x+w]
+        cropped_img = img[y:y + h, x:x + w]
 
-        # Resize to 128x32
-        
+        # Get dimensions correctly
+        h, w = cropped_img.shape[:2]
+
+        # Increase width by 50% and height by 20%
+        new_pani_width = int(w * 2)
+        new_pani_height = int(h * 1.5)
+
+        # Create a new uniform background with the same color as top-left pixel
+        background_color = cropped_img[0, 0]  # Get color from (0, 0) as tuple (B, G, R)
+        uniform_background = np.full((new_pani_height, new_pani_width, 3), background_color, dtype=np.uint8)
+
+        # Calculate position to paste the original image in the center
+        pani_position_x = (new_pani_width - w) // 2
+        pani_position_y = (new_pani_height - h) // 2
+
+        # Paste the original cropped image onto the uniform background
+        uniform_background[pani_position_y:pani_position_y + h, pani_position_x:pani_position_x + w] = cropped_img
 
         # Display the resized cropped image
         plt.figure(figsize=(4, 4))
-        plt.imshow(cropped_img, cmap='gray')
+        plt.imshow(cv2.cvtColor(uniform_background, cv2.COLOR_BGR2RGB))
         plt.title(f"Cropped & Resized Image ({filename})")
         plt.axis("off")
         plt.show()
 
         # Save the resized image
-        cv2.imwrite(save_path, cropped_img)
+        cv2.imwrite(save_path, uniform_background)
 
     print("Segmented words saved in:", output_dir)
     return bounding_boxes
+
