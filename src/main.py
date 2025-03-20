@@ -11,6 +11,7 @@ import cv2
 import numpy as np
 import os
 from PIL import Image, ImageDraw, ImageFont
+import shutil
 
 import editdistance
 from DataLoader import DataLoader, Batch
@@ -29,7 +30,7 @@ class FilePaths:
     fnCharList = '../model/charList.txt'
     fnAccuracy = '../model/accuracy.txt'
     fnTrain = '../data/'
-    fnInfer = '/content/12.png'
+    fnInfer = '/content/pani_with_uniform_background.png'
     fnCorpus = '../data/hindi_vocab.txt'
 
 def train(model, loader):
@@ -193,11 +194,14 @@ def main():
             validate(model, loader)
 
     # Perform OCR with segmentation and reconstruct the page with predicted words
-    model = Model(codecs.open(FilePaths.fnCharList, encoding='utf-8').read(), DecoderType.BestPath, mustRestore=True)
-
+    model = Model(codecs.open(FilePaths.fnCharList, encoding='utf-8').read(), decoderType, mustRestore=False)
+  
     # Perform OCR with segmentation and write text directly on image
     if args.image:
         output_dir = "cropped_images"
+        if os.path.exists(output_dir):
+        # Remove all files in the directory
+          shutil.rmtree(output_dir)
         os.makedirs(output_dir, exist_ok=True)
         bounding_boxes = segment_words(args.image, output_dir)
         original_image = cv2.imread(args.image)
