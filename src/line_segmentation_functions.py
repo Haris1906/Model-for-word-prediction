@@ -59,8 +59,8 @@ def segment_words(image_path, output_dir="cropped_images"):
         h, w = cropped_img.shape[:2]
 
         # Increase width by 50% and height by 20%
-        new_pani_width = int(w * 2)
-        new_pani_height = int(h * 1.5)
+        new_pani_width = int(w + 30)
+        new_pani_height = int(h + 15)
 
         # Create a new uniform background with the same color as top-left pixel
         background_color = cropped_img[0, 0]  # Get color from (0, 0) as tuple (B, G, R)
