@@ -29,25 +29,4 @@ To Prediction
 $ python main.py
 ```
 
-Run in Web with Flask
-```markdown
-$ python upload.py
-Validation character error rate of saved model: 12.988031%
-Python: 3.6.4 |Anaconda, Inc.| (default, Mar 12 2018, 20:20:50) [MSC v.1900 64 bit (AMD64)]
-Tensorflow: 1.8.0
-Init with stored values from ../model/snapshot-2
-Recognized: "होसले"
-Probability: 0.7297366
-```
-
-```bash
-@techreport{Devnagari-handwritten-word-recognition-2019,
-  title={Devnagari Handwritten Word Recognition},
-  author={Gautam Sushant},
-  institution={Tribhuvan University},
-  year={2019}
-}
-```
-For the completion of the eighth semester in the Computer Science program at Tribhuvan University. July 2019.
-
 
