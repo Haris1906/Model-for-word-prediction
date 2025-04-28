@@ -21,15 +21,6 @@ Use Convolutional Recurrent Neural Network to recognize the Handwritten Word tex
 
 NOTE: number of classes found =110 during parsing groud truth text of the images and save in model/charlist
 
-The model detail found 
-
-![here](images/model_detail.png)
-# Requirements
-1. Tensorflow 1.8.0
-2. Flask
-3. Numpy
-4. OpenCv 3
-
 #### Dataset Used
 IIT Devnagari Word Dataset. You can download it from [Devanagiri Dataset (IIIT-HW-Dev)](https://cvit.iiit.ac.in/research/projects/cvit-projects/indic-hw-data).
 
