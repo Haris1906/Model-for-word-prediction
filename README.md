@@ -39,24 +39,6 @@ Init with stored values from ../model/snapshot-2
 Recognized: "होसले"
 Probability: 0.7297366
 ```
-# DEMO
-![Demo of The Code Run](https://github.com/sushant097/Devnagari-Handwritten-Word-Recongition-with-Deep-Learning/blob/master/images/Devnagari_Word_Recognition_final.gif "Demo of the Output")
-
-
-# Further Improvement
-* Better Image preprocessing such as: reduce background noise to handle real time image more accurately.
-* Use Data Augmentation before training to improve accuracy.
-* Use Deep Layers of BLSTM or can be [MDLSTM](http://www.tbluche.com/files/icdar17_sar.pdf) but again you have to compromise with training complexity and overfitting.
-* Use Better [CTC Decoder](https://github.com/githubharald/CTCDecoder) such as [Word Level Decoder](https://ieeexplore.ieee.org/document/8583770) and better Language model for decoder output correction.
-
-
-<i>This is a small effort to make handwritten devnagari word recognition possible with deep learning in a word level. It can be use to a [line level recognition](https://github.com/sushant097/Handwritten-Line-Text-Recognition-using-Deep-Learning-with-Tensorflow) with few layers added on it and needs line level image data. This can be extended to the Nepali Handwritten Recognition with accessible to Nepali Dataset.
-You can also use [Word Segmentation](https://github.com/githubharald/WordSegmentation) of the Line level Images and pass it in a batch of images for prediction.
-You can try to make handwritten recognition on any language too.</i>
-This project gain lots of motivation from [githubharald/SimpleHTR](https://github.com/githubharald/SimpleHTR) Repo.
-
-# Citation
-If you use any part of this project in your work, please cite:
 
 ```bash
 @techreport{Devnagari-handwritten-word-recognition-2019,
