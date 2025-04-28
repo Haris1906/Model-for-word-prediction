@@ -11,16 +11,6 @@ Use Convolutional Recurrent Neural Network to recognize the Handwritten Word tex
 * Finally CTC Decode is used to decode the output during Prediction.
 </i>
 
-### Detail Project Workflow
-![Detail_Architecure_Of_Model](images/detail_architecture_flow.PNG)
-1. Input image is 128x32 (grayscale) pass to the model in a batch size.
-2. Pass through the 5 layer of CNN which extracts the 256 feature maps of size 32x1.
-3. Then the extracted feature vectors are passed to the 2 layer of LSTM form one BLSTM to maintain text dependencies efficiently from both direction which output is 32x110 i.e time-steps x number_of_classes.
-4. CTC Loss function is used to train the LSTM without need of transcription provided the correct spare ground truth texts and numeric value.
-5. Finally CTC decode is used on to decode the LSTM output and predict the written text in digital Image.
-
-NOTE: number of classes found =110 during parsing groud truth text of the images and save in model/charlist
-
 #### Dataset Used
 IIT Devnagari Word Dataset. You can download it from [Devanagiri Dataset (IIIT-HW-Dev)](https://cvit.iiit.ac.in/research/projects/cvit-projects/indic-hw-data).
 
