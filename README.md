@@ -29,6 +29,6 @@ To Prediction
 $ python main.py
 ```
 
-###NOTES
+### NOTES
 First delete all snapshots in model and train the model for 30 epochs which will take time and then u will get snapshots stored in the model and use this snapshots to predict the words 
 
