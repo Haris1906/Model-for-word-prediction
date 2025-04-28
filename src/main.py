@@ -187,10 +187,10 @@ def main():
         open(FilePaths.fnCorpus, 'w', encoding='UTF-8').write(str(' ').join(loader.trainWords + loader.validationWords))
 
         if args.train:
-            model = Model(codecs.open(FilePaths.fnCharList, encoding='utf-8').read(), decoderType, mustRestore=False, lastEpoch=32)
+            model = Model(codecs.open(FilePaths.fnCharList, encoding='utf-8').read(), decoderType, mustRestore=False, lastEpoch=0)
             train(model, loader)
         elif args.validate:
-            model = Model(codecs.open(FilePaths.fnCharList, encoding='utf-8').read(), decoderType, mustRestore=True, lastEpoch=32)
+            model = Model(codecs.open(FilePaths.fnCharList, encoding='utf-8').read(), decoderType, mustRestore=True, lastEpoch=0)
             validate(model, loader)
 
     # Perform OCR with segmentation and reconstruct the page with predicted words
