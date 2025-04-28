@@ -30,5 +30,5 @@ $ python main.py
 ```
 
 ### NOTES
-First delete all snapshots in model and train the model for 30 epochs which will take time and then u will get snapshots stored in the model and use this snapshots to predict the words 
+First delete all snapshots and set checkpoint to snapshots-0 in model and train the model for 30 epochs which will take time and then u will get snapshots stored in the model and use this snapshots to predict the words 
 
